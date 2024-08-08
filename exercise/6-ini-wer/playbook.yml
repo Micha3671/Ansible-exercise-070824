@@ -1,0 +1,28 @@
+---
+- name: "Ausgabe von 'Hallo von: group1'"
+  hosts: group1
+  tasks:
+    - name: "Sende Begrüßungsnachricht von group1"
+      ansible.builtin.debug:
+        msg: "Hallo von: group1"
+
+- name: "Ausgabe von 'Hallo von: group2'"
+  hosts: group2
+  tasks:
+    - name: "Sende Begrüßungsnachricht von group2"
+      ansible.builtin.debug:
+        msg: "Hallo von: group2"
+
+- name: "Ausgabe von 'Hallo von: group3'"
+  hosts: group3
+  tasks:
+    - name: "Sende Begrüßungsnachricht von group3"
+      ansible.builtin.debug:
+        msg: "Hallo von: group3"
+
+- name: "Ausgabe der öffentlichen IP-Adressen von allen Hosts"
+  hosts: servers
+  tasks:
+    - name: "Gebe die öffentliche IP-Adresse des Hosts aus"
+      ansible.builtin.debug:
+        msg: "Öffentliche IP-Adresse von {{ inventory_hostname }}: {{ ansible_host }}"
